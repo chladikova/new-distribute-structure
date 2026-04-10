@@ -19,9 +19,16 @@ export const COLOR_PALETTE = [
   "#4E342E", "#5D4037", "#6D4C41", "#795548", "#8D6E63", "#A1887F", "#BCAAA4", "#D7CCC8",
 ];
 
-export const NEEDS_ATTENTION_TAG_ID = "needs-attention";
+export const NEEDS_ATTENTION_TAG: Tag = {
+  id: "needs-attention",
+  name: "Needs Attention",
+  color: "#df4397",
+  usageCount: 12,
+  updated: "Apr 10, 2026 12:00 PM",
+};
 
 export const initialTags: Tag[] = [
+  NEEDS_ATTENTION_TAG,
   { id: "tag-1", name: "Invoice Management", color: "#2E95BE", usageCount: 1, updated: "Jan 6, 2026 5:00 PM" },
   { id: "tag-2", name: "Expense Reports", color: "#E53935", usageCount: 2, updated: "Jan 6, 2026 4:41 PM" },
   { id: "tag-3", name: "Client Invoices", color: "#F9A825", usageCount: 10, updated: "Dec 16, 2025 2:58 PM" },

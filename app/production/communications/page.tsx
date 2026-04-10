@@ -8,7 +8,7 @@ import Sidebar from "@/components/Sidebar";
 import DetailSidebar from "@/components/DetailSidebar";
 import SnackbarComponent from "@/components/Snackbar";
 import type { Remark } from "@/components/DetailSidebar";
-import { initialTags, COLOR_PALETTE } from "@/lib/tags";
+import { initialTags, COLOR_PALETTE, NEEDS_ATTENTION_TAG } from "@/lib/tags";
 import type { Tag } from "@/lib/tags";
 
 /* ─── Types ─── */
@@ -50,7 +50,6 @@ const TAB_TO_STATUS: Record<string, GeneralStatus[]> = {
 
 /* ─── Mock data ─── */
 
-const NEEDS_ATTENTION_TAG: Tag = { id: "needs-attention", name: "Needs Attention", color: "#df4397", usageCount: 0, updated: "" };
 const OVERDUE_TAG: Tag = { id: "overdue", name: "overdue", color: "#e65100", usageCount: 0, updated: "" };
 const t = initialTags;
 

@@ -846,17 +846,22 @@ export default function NeedsAttentionPage() {
   // Snackbar state
   const [snackbar, setSnackbar] = useState({ open: false, message: "" });
 
+  const visibleRows = useMemo(
+    () => rows.filter((r) => !r.tagRemoved),
+    [rows],
+  );
+
   const typeCounts = useMemo(() => {
     const counts: Record<string, number> = {};
-    for (const row of rows) {
+    for (const row of visibleRows) {
       counts[row.type] = (counts[row.type] ?? 0) + 1;
     }
     return counts;
-  }, [rows]);
+  }, [visibleRows]);
 
   const filteredRows = useMemo(
-    () => (activeTab === "All" ? rows : rows.filter((r) => r.type === activeTab)),
-    [activeTab, rows],
+    () => (activeTab === "All" ? visibleRows : visibleRows.filter((r) => r.type === activeTab)),
+    [activeTab, visibleRows],
   );
 
   const expandableIds = useMemo(
@@ -935,13 +940,16 @@ export default function NeedsAttentionPage() {
   function handleUnassignTag() {
     if (selectedIds.size === 0) return;
     const count = selectedIds.size;
+    if (sidebarRowId && selectedIds.has(sidebarRowId)) {
+      setSidebarOpen(false);
+    }
     setRows((prev) =>
       prev.map((r) =>
         selectedIds.has(r.id) ? { ...r, tagRemoved: true } : r,
       ),
     );
     setSelectedIds(new Set());
-    setSnackbar({ open: true, message: `Tag removed from ${count} item${count !== 1 ? "s" : ""}` });
+    setSnackbar({ open: true, message: `Needs Attention tag removed from ${count} item${count !== 1 ? "s" : ""}` });
   }
 
   function handleAddRemark() {
@@ -1049,6 +1057,13 @@ export default function NeedsAttentionPage() {
                               onRemarkClick={() => handleRemarkClick(row.id)}
                             />
                           ))}
+                          {filteredRows.length === 0 && (
+                            <div className="flex items-center justify-center py-12">
+                              <span className="text-[14px]" style={{ color: "#9e9e9e" }}>
+                                No items need attention.
+                              </span>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>

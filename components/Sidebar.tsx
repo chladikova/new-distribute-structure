@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Img from "@/components/Img";
 
 interface ParentItem {
   label: string;
@@ -16,7 +17,7 @@ function SidebarIcon({ src, inset }: { src: string; inset: string }) {
   return (
     <div className="relative size-5 shrink-0 overflow-hidden">
       <div className="absolute" style={{ inset }}>
-        <img src={src} alt="" className="absolute inset-0 size-full" />
+        <Img src={src} alt="" className="absolute inset-0 size-full" />
       </div>
     </div>
   );
@@ -26,7 +27,7 @@ function ExpandMoreIcon() {
   return (
     <div className="relative size-5 shrink-0 overflow-hidden">
       <div className="absolute" style={{ inset: "36.28% 26.72%" }}>
-        <img src="/icons/expand-more-raw.svg" alt="" className="absolute inset-0 size-full" />
+        <Img src="/icons/expand-more-raw.svg" alt="" className="absolute inset-0 size-full" />
       </div>
     </div>
   );
@@ -36,10 +37,10 @@ function ProductionIcon() {
   return (
     <div className="relative size-5 shrink-0 overflow-hidden">
       <div className="absolute" style={{ inset: "10% 21.89% 10% 10%" }}>
-        <img src="/icons/production-1.svg" alt="" className="absolute inset-0 size-full" />
+        <Img src="/icons/production-1.svg" alt="" className="absolute inset-0 size-full" />
       </div>
       <div className="absolute" style={{ inset: "35% 10% 35% 55%" }}>
-        <img src="/icons/production-2.svg" alt="" className="absolute inset-0 size-full" />
+        <Img src="/icons/production-2.svg" alt="" className="absolute inset-0 size-full" />
       </div>
     </div>
   );

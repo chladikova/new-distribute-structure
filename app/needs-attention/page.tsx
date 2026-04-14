@@ -3,6 +3,7 @@
 import { useState, useMemo, useCallback } from "react";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
+import Img from "@/components/Img";
 import DetailSidebar from "@/components/DetailSidebar";
 import SnackbarComponent from "@/components/Snackbar";
 import type { Remark, ObjectInfo } from "@/components/DetailSidebar";
@@ -204,7 +205,7 @@ function ToolbarIcon({ src, inset }: { src: string; inset: string }) {
   return (
     <div className="relative shrink-0 size-5 overflow-hidden">
       <div className="absolute" style={{ inset }}>
-        <img src={src} alt="" className="absolute inset-0 size-full" />
+        <Img src={src} alt="" className="absolute inset-0 size-full" />
       </div>
     </div>
   );
@@ -286,7 +287,7 @@ function TitleBar() {
             <div className="flex flex-1 items-center min-w-0">
               <div className="flex items-center gap-2.5 shrink-0" style={{ width: 229 }}>
                 <div className="relative shrink-0 size-6 overflow-hidden">
-                  <img src="/icons/filter-alt.svg" alt="" className="absolute inset-0 size-full" />
+                  <Img src="/icons/filter-alt.svg" alt="" className="absolute inset-0 size-full" />
                 </div>
                 <span className="text-[13px] font-normal leading-6 truncate" style={{ color: "#747474" }}>
                   Type to search
@@ -294,7 +295,7 @@ function TitleBar() {
               </div>
             </div>
             <div className="relative shrink-0 size-5 overflow-hidden">
-              <img src="/icons/search.svg" alt="" className="absolute inset-0 size-full" />
+              <Img src="/icons/search.svg" alt="" className="absolute inset-0 size-full" />
             </div>
           </div>
         </div>
@@ -553,7 +554,7 @@ function TreeSwitcher({ expanded, onToggle }: { expanded: boolean; onToggle: () 
         onToggle();
       }}
     >
-      <img src="/icons/chevron-right.svg" alt="" className="absolute inset-0 size-full" />
+      <Img src="/icons/chevron-right.svg" alt="" className="absolute inset-0 size-full" />
     </div>
   );
 }
@@ -562,7 +563,7 @@ function RemarkCell({ count, onClick }: { count: number; onClick: () => void }) 
   return (
     <div className="flex items-start gap-1 px-3 py-2 cursor-pointer hover:opacity-70" onClick={onClick}>
       <div className="relative shrink-0 size-5 overflow-hidden">
-        <img src="/icons/comment-icon.svg" alt="" className="absolute inset-0 size-full" style={{ opacity: 0.6 }} />
+        <Img src="/icons/comment-icon.svg" alt="" className="absolute inset-0 size-full" style={{ opacity: 0.6 }} />
       </div>
       <span className="text-[14px] font-normal leading-5 truncate" style={{ color: "#3a3a39" }}>
         ({count})
@@ -798,7 +799,7 @@ function Pagination() {
             </div>
             <div className="flex items-start p-2 shrink-0" style={{ width: 36, height: 36 }}>
               <div className="relative shrink-0 size-5 overflow-hidden">
-                <img src="/icons/arrow-drop-down.svg" alt="" className="absolute inset-0 size-full" />
+                <Img src="/icons/arrow-drop-down.svg" alt="" className="absolute inset-0 size-full" />
               </div>
             </div>
           </div>
@@ -806,10 +807,10 @@ function Pagination() {
       </div>
       <div className="flex items-center justify-end gap-0.5 shrink-0" style={{ height: 36 }}>
         <div className="flex items-center justify-center shrink-0 cursor-pointer hover:bg-black/5 transition-colors duration-100 overflow-hidden rounded-lg p-2" style={{ minHeight: 36, maxHeight: 36 }}>
-          <div className="relative shrink-0 size-5 overflow-hidden"><img src="/icons/first-page.svg" alt="" className="absolute inset-0 size-full" /></div>
+          <div className="relative shrink-0 size-5 overflow-hidden"><Img src="/icons/first-page.svg" alt="" className="absolute inset-0 size-full" /></div>
         </div>
         <div className="flex items-center justify-center shrink-0 cursor-pointer hover:bg-black/5 transition-colors duration-100 overflow-hidden rounded-lg p-2" style={{ minHeight: 36, maxHeight: 36 }}>
-          <div className="relative shrink-0 size-5 overflow-hidden"><img src="/icons/chevron-left.svg" alt="" className="absolute inset-0 size-full" /></div>
+          <div className="relative shrink-0 size-5 overflow-hidden"><Img src="/icons/chevron-left.svg" alt="" className="absolute inset-0 size-full" /></div>
         </div>
         {pages.map((page, idx) => (
           <div key={page} className="flex items-center justify-center shrink-0 cursor-pointer hover:bg-black/5 transition-colors duration-100" style={{ height: 36, minWidth: 36, borderLeft: "1px solid #d4d4d4", borderRight: idx === pages.length - 1 ? "1px solid #d4d4d4" : undefined }}>
@@ -819,10 +820,10 @@ function Pagination() {
           </div>
         ))}
         <div className="flex items-center justify-center shrink-0 cursor-pointer hover:bg-black/5 transition-colors duration-100 overflow-hidden rounded-lg p-2" style={{ minHeight: 36, maxHeight: 36 }}>
-          <div className="relative shrink-0 size-5 overflow-hidden"><img src="/icons/chevron-right.svg" alt="" className="absolute inset-0 size-full" /></div>
+          <div className="relative shrink-0 size-5 overflow-hidden"><Img src="/icons/chevron-right.svg" alt="" className="absolute inset-0 size-full" /></div>
         </div>
         <div className="flex items-center justify-center shrink-0 cursor-pointer hover:bg-black/5 transition-colors duration-100 overflow-hidden rounded-lg p-2" style={{ minHeight: 36, maxHeight: 36 }}>
-          <div className="relative shrink-0 size-5 overflow-hidden"><img src="/icons/last-page.svg" alt="" className="absolute inset-0 size-full" /></div>
+          <div className="relative shrink-0 size-5 overflow-hidden"><Img src="/icons/last-page.svg" alt="" className="absolute inset-0 size-full" /></div>
         </div>
       </div>
     </div>

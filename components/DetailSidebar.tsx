@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Img from "@/components/Img";
 
 export interface Remark {
   id: string;
@@ -85,7 +86,7 @@ export default function DetailSidebar({
             className="shrink-0 size-6 cursor-pointer hover:opacity-70 relative overflow-hidden"
             onClick={onClose}
           >
-            <img src="/icons/close.svg" alt="Close" className="absolute inset-0 size-full" />
+            <Img src="/icons/close.svg" alt="Close" className="absolute inset-0 size-full" />
           </div>
         </div>
 
@@ -402,7 +403,7 @@ function CommentItem({ remark, isLast }: { remark: Remark; isLast: boolean }) {
           </span>
         </div>
         <div className="relative shrink-0 size-6 overflow-hidden cursor-pointer hover:opacity-60">
-          <img src="/icons/more-vert.svg" alt="" className="absolute inset-0 size-full" />
+          <Img src="/icons/more-vert.svg" alt="" className="absolute inset-0 size-full" />
         </div>
       </div>
 

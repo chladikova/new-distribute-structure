@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${openSans.variable} ${rubik.variable} font-sans antialiased`} style={{ fontFamily: "var(--font-open-sans), sans-serif" }}>
-        {children}test
+        {children}
       </body>
     </html>
   );
